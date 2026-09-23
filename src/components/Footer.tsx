@@ -34,10 +34,10 @@ export function Footer() {
         <div className="w-24 h-[1px] bg-white/20 mb-8" />
         
         <p className="text-white/50 text-sm font-medium">
-          &copy; {currentYear} Barathan S. All rights reserved.
+          &copy; {currentYear} S. Barathan. All rights reserved.
         </p>
         <p className="text-white/30 text-xs mt-2">
-          B.Sc. Microbiology | Biotechnology Enthusiast
+          M.Sc. Microbiology | Research Enthusiast
         </p>
       </div>
     </footer>

@@ -7,30 +7,28 @@ import Image from "next/image";
 export function Projects() {
   const projects = [
     {
-     
-  title: "Antibacterial Activity of Moringa oleifera Leaf Extract",
-  category: "Medical Microbiology",
-  image: "/images/project-1.jpg",
-  description: "Investigated the antibacterial potential of Moringa oleifera leaf extracts against Escherichia coli and Staphylococcus aureus using the disc diffusion method with ethanol and acetone extracts.",
-  methodology: "Leaf Collection, Solvent Extraction (Ethanol & Acetone), Nutrient Agar Preparation, Disc Diffusion Assay, Incubation, Zone of Inhibition Measurement.",
-  outcome: "Observed significant antibacterial activity, with acetone extract showing the highest inhibition against Staphylococcus aureus, demonstrating the therapeutic potential of Moringa oleifera.",
-},
-  
-    {
-      title: "Observation of Vesicular Arbuscular Mycorrhizal (VAM) Fungi",
-     category: "Plant Microbiology",
-image: "/images/project-2.jpg",
-description: "Observed and identified Vesicular Arbuscular Mycorrhizal (VAM) fungi associated with plant roots using microscopic examination to study their symbiotic relationship and colonization patterns.",
-methodology: "Root sample collection, KOH clearing, acidification with HCl, Trypan Blue staining, microscopic observation, and identification of vesicles, arbuscules, and hyphal structures.",
-outcome: "Successfully visualized VAM fungal structures within plant roots, confirming mycorrhizal colonization and demonstrating their role in enhancing nutrient uptake and plant growth."
-    },
-    {
       title: "Isolation of Bacteria from Soil & Plant Samples and Genomic DNA Extraction",
       category: "Environmental Microbiology",
       image: "/images/project-3.jpg",
-      description: "Conducted comprehensive research involving isolation and characterization of bacteria from soil/leaf samples, and genomic DNA extraction from plant tissues.",
-      methodology: "Serial Dilution, Spread Plate, Gram Staining, Biochemical Tests, CTAB DNA Extraction, Agarose Gel Electrophoresis.",
-      outcome: "Successfully purified bacterial colonies, evaluated DNA quality using spectrophotometry, and studied microbial diversity.",
+      description: "Conducted comprehensive research on bacterial isolation and molecular characterization from environmental samples.",
+      methodology: "Colony morphology analysis, Gram staining, biochemical identification, genomic DNA extraction.",
+      outcome: "Successfully purified bacterial colonies, evaluated DNA quality, and studied microbial diversity.",
+    },
+    {
+      title: "Antibacterial Activity of Moringa oleifera Leaf Extract",
+      category: "Medical Microbiology",
+      image: "/images/project-1.jpg",
+      description: "A plant-derived antimicrobial investigation focusing on bacterial growth inhibition against Escherichia coli and Staphylococcus aureus.",
+      methodology: "Plant extract preparation, disc diffusion assay, incubation, zone of inhibition measurement.",
+      outcome: "Observed significant antimicrobial activity, demonstrating therapeutic potential against Staphylococcus aureus.",
+    },
+    {
+      title: "VAM Fungi Root Colonization",
+      category: "Plant Microbiology",
+      image: "/images/project-2.jpg",
+      description: "Investigated plant-microbe interactions by observing mycorrhizal fungi and fungal colonization associated with plant roots.",
+      methodology: "Root sample collection, KOH clearing, Trypan blue staining, microscopic identification.",
+      outcome: "Successfully visualized VAM fungal structures (hyphae, arbuscules, vesicles), confirming mycorrhizal colonization.",
     }
   ];
 

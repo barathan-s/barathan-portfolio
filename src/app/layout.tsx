@@ -14,9 +14,9 @@ const playfair = Playfair_Display({
 });
 
 export const metadata: Metadata = {
-  title: "BARATHAN S | Microbiology Graduate & Researcher",
-  description: "World-class premium portfolio of BARATHAN S, a Microbiology Graduate specializing in Biotechnology, Food Industry, and Environmental Research.",
-  keywords: ["Microbiology", "Biotechnology", "Researcher", "Laboratory", "Barathan S", "Portfolio"],
+  title: "S. Barathan | M.Sc. Microbiology",
+  description: "Portfolio of S. Barathan, an M.Sc. Microbiology student exploring microbiology, laboratory research, molecular microbiology and applied microbiology.",
+  keywords: ["Microbiology", "Applied Microbiology", "Molecular Microbiology", "Researcher", "Laboratory", "Barathan S", "Portfolio"],
 };
 
 export default function RootLayout({

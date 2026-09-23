@@ -7,12 +7,28 @@ import { GraduationCap, Calendar, MapPin } from "lucide-react";
 export function Education() {
   const educationData = [
     {
+      degree: "Master of Science in Microbiology",
+      institution: "Annamalai University",
+      university: "Annamalai University",
+      period: "Present",
+      location: "Chidambaram, India",
+      description: "Advanced studies focusing on microbial sciences, molecular microbiology, and innovative research-driven solutions."
+    },
+    {
       degree: "Bachelor of Science in Microbiology",
       institution: "Sri Manakula Vinayagar Engineering College",
       university: "Pondicherry University",
       period: "2023 – 2026",
       location: "Puducherry, India",
-      description: "Comprehensive study of microbial physiology, genetics, environmental microbiology, and biotechnology. Participated in multiple laboratory sessions focused on modern microbiological techniques."
+      description: "Comprehensive study of microbial physiology, genetics, environmental microbiology, and applied microbiology. Participated in multiple laboratory sessions focused on modern microbiological techniques."
+    },
+    {
+      degree: "Higher Secondary (12th Grade)",
+      institution: "St. Joseph Higher Secondary School",
+      university: "Tamil Nadu State Board",
+      period: "Graduated 2023",
+      location: "Cuddalore, India",
+      description: "Secured 81% in board examinations with a strong focus on biological sciences."
     }
   ];
 

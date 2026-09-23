@@ -6,8 +6,8 @@ import { User, BookOpen, Globe2, Code2 } from "lucide-react";
 
 export function About() {
   const details = [
-    { label: "Full Name", value: "BARATHAN S", icon: <User className="text-secondary w-5 h-5" /> },
-    { label: "Education", value: "B.Sc. Microbiology", icon: <BookOpen className="text-secondary w-5 h-5" /> },
+    { label: "Full Name", value: "S. Barathan", icon: <User className="text-secondary w-5 h-5" /> },
+    { label: "Education", value: "M.Sc. Microbiology", icon: <BookOpen className="text-secondary w-5 h-5" /> },
     { label: "Languages", value: "English, Tamil", icon: <Globe2 className="text-secondary w-5 h-5" /> },
     { label: "Tech Skills", value: "Excel, Power BI", icon: <Code2 className="text-secondary w-5 h-5" /> },
   ];
@@ -31,9 +31,9 @@ export function About() {
             <div className="glass-card p-8 md:p-12 relative">
               <div className="absolute top-0 right-0 w-32 h-32 bg-secondary/10 rounded-bl-full -z-10" />
               
-              <h3 className="text-2xl font-serif font-bold text-white mb-6">Career Objective</h3>
+              <h3 className="text-2xl font-serif font-bold text-white mb-6">Professional Profile</h3>
               <p className="text-white/80 leading-relaxed mb-8 text-lg">
-                To secure a challenging position in a reputable research institute or biotechnology company where I can apply my knowledge of microbiology to contribute to groundbreaking discoveries. I am dedicated to improving healthcare, environmental sustainability, and food safety through rigorous scientific methods.
+                I am a passionate M.Sc. Microbiology student with a strong foundation in laboratory research, molecular microbiology, and applied microbiology. Having gained practical experience through internships and hands-on projects, I am dedicated to exploring microbial solutions that can improve healthcare, environmental sustainability, and industrial processes. I continually seek to apply my expertise in modern microbiological techniques to contribute to groundbreaking scientific discoveries.
               </p>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">

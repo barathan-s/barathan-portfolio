@@ -6,11 +6,16 @@ import { Dna, Droplets, Factory, TestTube2, Stethoscope } from "lucide-react";
 
 export function Research() {
   const interests = [
-    { name: "Biotechnology", icon: <Dna size={24} /> },
-    { name: "Food Microbiology", icon: <Droplets size={24} /> },
-    { name: "Industrial Microbiology", icon: <Factory size={24} /> },
+    { name: "Microbial Diversity & Ecology", icon: <Dna size={24} /> },
+    { name: "Molecular Microbiology", icon: <Dna size={24} /> },
     { name: "Environmental Microbiology", icon: <TestTube2 size={24} /> },
+    { name: "Industrial Microbiology", icon: <Factory size={24} /> },
     { name: "Medical Microbiology", icon: <Stethoscope size={24} /> },
+    { name: "Antimicrobial Research", icon: <Stethoscope size={24} /> },
+    { name: "Plant-Microbe Interactions", icon: <Droplets size={24} /> },
+    { name: "Food Microbiology", icon: <Droplets size={24} /> },
+    { name: "Applied Microbiology", icon: <TestTube2 size={24} /> },
+    { name: "Microbial Biotechnology", icon: <Dna size={24} /> },
   ];
 
   return (

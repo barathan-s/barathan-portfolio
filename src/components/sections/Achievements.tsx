@@ -9,6 +9,8 @@ import {
 } from "lucide-react";
 import { useState, useEffect, useRef, useCallback } from "react";
 import Image from "next/image";
+import { MicrobiologyCVButton } from "../ui/MicrobiologyCVButton";
+import { ScientificCVCard } from "../ui/ScientificCVCard";
 
 // --- Mock Data ---
 // --- Mock Data ---
@@ -596,94 +598,44 @@ export function Achievements() {
   );
 }
 
-// 3D Interactive Resume Card
 function ResumeCard() {
-  const ref = useRef<HTMLDivElement>(null);
-  const x = useMotionValue(0);
-  const y = useMotionValue(0);
-
-  const mouseXSpring = useSpring(x, { stiffness: 300, damping: 20 });
-  const mouseYSpring = useSpring(y, { stiffness: 300, damping: 20 });
-
-  const rotateX = useTransform(mouseYSpring, [-0.5, 0.5], ["10deg", "-10deg"]);
-  const rotateY = useTransform(mouseXSpring, [-0.5, 0.5], ["-10deg", "10deg"]);
-  
-  const translateX = useTransform(mouseXSpring, [-0.5, 0.5], [-15, 15]);
-  const translateY = useTransform(mouseYSpring, [-0.5, 0.5], [-15, 15]);
-
-  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
-    if (!ref.current) return;
-    const rect = ref.current.getBoundingClientRect();
-    const width = rect.width;
-    const height = rect.height;
-    
-    const mouseX = (e.clientX - rect.left) / width - 0.5;
-    const mouseY = (e.clientY - rect.top) / height - 0.5;
-    
-    x.set(mouseX);
-    y.set(mouseY);
-  };
-
-  const handleMouseLeave = () => {
-    x.set(0);
-    y.set(0);
-  };
-
-  return (
-    <motion.div
-      ref={ref}
-      onMouseMove={handleMouseMove}
-      onMouseLeave={handleMouseLeave}
-      initial={{ opacity: 0, y: 30 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      style={{ perspective: 1000, transformStyle: "preserve-3d" }}
-      className="max-w-2xl mx-auto mt-8 cursor-pointer group"
-    >
-      <motion.div
-        style={{ rotateX, rotateY, transformStyle: "preserve-3d" }}
-        className="relative glass-card p-12 flex flex-col items-center border border-blue-500/20 shadow-[0_0_50px_rgba(59,130,246,0.05)] transition-colors duration-300 group-hover:border-blue-400/40 group-hover:bg-[#0A1024]/80 rounded-3xl overflow-hidden"
-      >
-        {/* Dynamic Glow Background based on mouse */}
-        <motion.div 
-          className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"
-          style={{ background: `radial-gradient(circle at center, rgba(59,130,246,0.1) 0%, transparent 70%)` }}
-        />
-
-        {/* 3D Floating Content */}
-        <motion.div style={{ x: translateX, y: translateY, translateZ: 50 }} className="flex flex-col items-center text-center z-10">
-          <div className="w-24 h-24 bg-blue-500/10 rounded-full flex items-center justify-center mb-6 shadow-inner border border-blue-400/30 group-hover:shadow-[0_0_25px_rgba(59,130,246,0.5)] transition-shadow">
-            <FileText className="w-12 h-12 text-blue-400" />
-          </div>
-          <h3 className="text-3xl font-bold text-white mb-4 group-hover:text-blue-300 transition-colors drop-shadow-md">Complete Documentation</h3>
-          <p className="text-white/70 mb-8 max-w-md leading-relaxed group-hover:text-white/90 transition-colors">
-            For a detailed overview of my academic records, full project details, and professional references, please download my comprehensive resume.
-          </p>
-          <a 
-            href="/resume.pdf"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="px-8 py-4 bg-blue-600 text-white rounded-full font-bold transition-all hover:bg-blue-500 hover:scale-105 shadow-[0_0_20px_rgba(37,99,235,0.3)] inline-flex items-center gap-3 relative z-20"
-            onClick={(e) => e.stopPropagation()}
-          >
-            <Download size={20} />
-            Download Resume (PDF)
-          </a>
-        </motion.div>
-      </motion.div>
-    </motion.div>
-  );
+  return <ScientificCVCard />;
 }
 
-// Keep Resume intact
+// Custom Entrance Animation for CV
 export function Resume() {
   return (
     <section id="resume" className="py-24 relative bg-black/20 border-t border-white/5">
       <div className="container mx-auto px-6 md:px-12 text-center">
-        <SectionHeader 
-          title="Curriculum Vitae" 
-          subtitle="Download my complete professional resume."
-        />
+        <div className="mb-16">
+          <motion.h2
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.6 }}
+            className="text-3xl md:text-5xl font-serif font-bold text-white mb-4"
+          >
+            Curriculum Vitae
+          </motion.h2>
+          
+          <motion.div
+            initial={{ opacity: 0, scaleX: 0 }}
+            whileInView={{ opacity: 1, scaleX: 1 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
+            className="h-1 w-20 bg-secondary rounded-full mb-6 mx-auto origin-center"
+          />
+          
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.6, delay: 0.4 }}
+            className="text-white/60 text-lg max-w-2xl mx-auto"
+          >
+            Explore my academic background, laboratory experience, projects, skills, and professional experience through my complete CV.
+          </motion.p>
+        </div>
         
         <ResumeCard />
       </div>

@@ -170,16 +170,39 @@ export function GlobalBackground() {
       });
 
       ctx.globalAlpha = 1;
-      animationFrameId = requestAnimationFrame(render);
+      
+      const mediaQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
+      if (!mediaQuery.matches) {
+        animationFrameId = requestAnimationFrame(render);
+      } else {
+        // If reduced motion is on, just draw once and do not loop.
+        // But to respond to changes, we could listen, but drawing once is fine.
+      }
     };
 
-    render();
+    const mediaQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
+    if (!mediaQuery.matches) {
+      render();
+    } else {
+      // Draw initial state once
+      render(); 
+    }
+
+    const motionHandler = (e: MediaQueryListEvent) => {
+      if (!e.matches) {
+        render(); // restart animation
+      } else {
+        cancelAnimationFrame(animationFrameId);
+      }
+    };
+    mediaQuery.addEventListener("change", motionHandler);
 
     return () => {
       cancelAnimationFrame(animationFrameId);
       window.removeEventListener("resize", setSize);
       window.removeEventListener("mousemove", handleMouseMove);
       window.removeEventListener("mouseleave", handleMouseLeave);
+      mediaQuery.removeEventListener("change", motionHandler);
     };
   }, []);
 

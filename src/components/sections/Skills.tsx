@@ -19,24 +19,46 @@ import {
   LineChart 
 } from "lucide-react";
 
-// Data Structure
 const skillsData = [
-  // Lab
-  { name: "Microbial Isolation", icon: Dna, category: "lab", color: "#38bdf8" }, // cyan
-  { name: "Gram Staining", icon: Droplets, category: "lab", color: "#818cf8" }, // indigo
-  { name: "Culture Media", icon: FlaskConical, category: "lab", color: "#34d399" }, // emerald
-  { name: "Sterilization", icon: Flame, category: "lab", color: "#f87171" }, // red
-  { name: "Identification", icon: Microscope, category: "lab", color: "#a78bfa" }, // purple
-  { name: "Biochemical Tests", icon: TestTube2, category: "lab", color: "#fbbf24" }, // amber
-  { name: "Aseptic Technique", icon: ShieldAlert, category: "lab", color: "#2dd4bf" }, // teal
-  { name: "Lab Documentation", icon: FileText, category: "lab", color: "#94a3b8" }, // slate
-  // Industry
-  { name: "Quality Control", icon: ClipboardCheck, category: "industry", color: "#10b981" }, // emerald
-  { name: "HACCP", icon: ShieldCheck, category: "industry", color: "#3b82f6" }, // blue
-  { name: "GMP", icon: Factory, category: "industry", color: "#6366f1" }, // indigo
-  { name: "Microsoft Excel", icon: TableProperties, category: "industry", color: "#22c55e" }, // green
-  { name: "Power BI", icon: LineChart, category: "industry", color: "#eab308" }, // yellow
+  // Laboratory Techniques
+  { name: "Microbial Isolation", icon: Dna, category: "lab", color: "#38bdf8" },
+  { name: "Serial Dilution", icon: Droplets, category: "lab", color: "#38bdf8" },
+  { name: "Spread Plate Technique", icon: FlaskConical, category: "lab", color: "#38bdf8" },
+  { name: "Gram Staining", icon: Droplets, category: "lab", color: "#818cf8" },
+  { name: "Simple Staining", icon: Droplets, category: "lab", color: "#818cf8" },
+  { name: "Biochemical Tests", icon: TestTube2, category: "lab", color: "#fbbf24" },
+  { name: "Microscopy", icon: Microscope, category: "lab", color: "#a78bfa" },
+  { name: "Differential Staining", icon: Droplets, category: "lab", color: "#f87171" },
+  { name: "Microbial Culture Techniques", icon: FlaskConical, category: "lab", color: "#34d399" },
+  
+  // Molecular Microbiology
+  { name: "Genomic DNA Extraction", icon: Dna, category: "molecular", color: "#f43f5e" },
+  { name: "CTAB-based DNA Extraction", icon: Dna, category: "molecular", color: "#f43f5e" },
+  { name: "DNA Quality Assessment", icon: Microscope, category: "molecular", color: "#f43f5e" },
+  { name: "Agarose Gel Electrophoresis", icon: Flame, category: "molecular", color: "#f43f5e" },
+  { name: "Basic Molecular Techniques", icon: TestTube2, category: "molecular", color: "#f43f5e" },
+
+  // Applied Microbiology
+  { name: "Environmental Microbiology", icon: ShieldAlert, category: "applied", color: "#34d399" },
+  { name: "Industrial Microbiology", icon: Factory, category: "applied", color: "#34d399" },
+  { name: "Food Microbiology", icon: Droplets, category: "applied", color: "#34d399" },
+  { name: "Antimicrobial Testing", icon: ShieldCheck, category: "applied", color: "#34d399" },
+  { name: "Plant-Microbe Interactions", icon: FlaskConical, category: "applied", color: "#34d399" },
+  { name: "Microbial Ecology", icon: Dna, category: "applied", color: "#34d399" },
+
+  // Quality & Industry
+  { name: "HACCP", icon: ShieldCheck, category: "industry", color: "#10b981" },
+  { name: "GMP", icon: Factory, category: "industry", color: "#6366f1" },
+  { name: "Laboratory Hygiene", icon: ShieldAlert, category: "industry", color: "#2dd4bf" },
+  { name: "Quality Control", icon: ClipboardCheck, category: "industry", color: "#10b981" },
+
+  // Digital / Technical
+  { name: "Microsoft Excel", icon: TableProperties, category: "digital", color: "#22c55e" },
+  { name: "Power BI", icon: LineChart, category: "digital", color: "#eab308" },
+  { name: "Basic Programming", icon: FileText, category: "digital", color: "#94a3b8" },
+  { name: "Bioinformatics Fundamentals", icon: Dna, category: "digital", color: "#818cf8" },
 ];
+
 
 // Interactive 3D Card Component
 function Skill3DCard({ skill, index }: { skill: typeof skillsData[0], index: number }) {
@@ -144,8 +166,13 @@ function Skill3DCard({ skill, index }: { skill: typeof skillsData[0], index: num
 }
 
 export function Skills() {
-  const labSkills = skillsData.filter(s => s.category === "lab");
-  const industrySkills = skillsData.filter(s => s.category === "industry");
+  const categories = [
+    { id: "lab", title: "Laboratory Techniques", icon: "🔬" },
+    { id: "molecular", title: "Molecular Microbiology", icon: "🧬" },
+    { id: "applied", title: "Applied Microbiology", icon: "🧪" },
+    { id: "industry", title: "Quality & Industry", icon: "🏭" },
+    { id: "digital", title: "Digital & Technical", icon: "💻" }
+  ];
 
   return (
     <section id="skills" className="py-24 relative overflow-hidden bg-transparent">
@@ -158,43 +185,30 @@ export function Skills() {
         />
 
         <div className="flex flex-col gap-16 max-w-6xl mx-auto mt-12">
-          {/* Lab Skills Grid */}
-          <div>
-            <motion.div 
-              initial={{ opacity: 0, x: -20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              className="flex items-center gap-3 mb-8"
-            >
-              <span className="text-3xl drop-shadow-[0_0_10px_rgba(56,189,248,0.8)]">🔬</span>
-              <h3 className="text-2xl font-serif font-bold text-white tracking-wider">Research & Laboratory</h3>
-            </motion.div>
-            
-            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-              {labSkills.map((skill, index) => (
-                <Skill3DCard key={skill.name} skill={skill} index={index} />
-              ))}
-            </div>
-          </div>
+          {categories.map((cat, catIndex) => {
+            const catSkills = skillsData.filter(s => s.category === cat.id);
+            if (catSkills.length === 0) return null;
 
-          {/* Industry Skills Grid */}
-          <div>
-            <motion.div 
-              initial={{ opacity: 0, x: -20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              className="flex items-center gap-3 mb-8"
-            >
-              <span className="text-3xl drop-shadow-[0_0_10px_rgba(16,185,129,0.8)]">⚙️</span>
-              <h3 className="text-2xl font-serif font-bold text-white tracking-wider">Industry & Software</h3>
-            </motion.div>
-            
-            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
-              {industrySkills.map((skill, index) => (
-                <Skill3DCard key={skill.name} skill={skill} index={index + labSkills.length} />
-              ))}
-            </div>
-          </div>
+            return (
+              <div key={cat.id}>
+                <motion.div 
+                  initial={{ opacity: 0, x: -20 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  className="flex items-center gap-3 mb-8"
+                >
+                  <span className="text-3xl drop-shadow-[0_0_10px_rgba(56,189,248,0.8)]">{cat.icon}</span>
+                  <h3 className="text-2xl font-serif font-bold text-white tracking-wider">{cat.title}</h3>
+                </motion.div>
+                
+                <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+                  {catSkills.map((skill, index) => (
+                    <Skill3DCard key={skill.name} skill={skill} index={index + catIndex * 4} />
+                  ))}
+                </div>
+              </div>
+            );
+          })}
         </div>
       </div>
     </section>

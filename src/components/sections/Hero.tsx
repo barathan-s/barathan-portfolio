@@ -5,6 +5,7 @@ import { ArrowRight, Download, Mail } from "lucide-react";
 import Image from "next/image";
 
 import { useEffect, useRef } from "react";
+import { MicrobiologyCVButton } from "../ui/MicrobiologyCVButton";
 
 
 
@@ -25,21 +26,19 @@ export function Hero() {
             transition={{ duration: 0.5, delay: 0.4 }}
             className="inline-block py-1 px-3 rounded-full bg-secondary/10 border border-secondary/20 text-secondary font-medium text-sm mb-6"
           >
-            B.Sc. Microbiology Graduate
+            M.Sc. Microbiology
           </motion.div>
           
           <h1 className="text-5xl md:text-7xl font-serif font-bold text-white mb-4 leading-tight">
-            BARATHAN S
+            S. BARATHAN
           </h1>
           
           <h2 className="text-xl md:text-2xl text-accent font-light tracking-wide mb-6">
-            Research • Laboratory • Microbiology
+            Microbiology Postgraduate
           </h2>
           
           <p className="text-white/70 text-lg mb-10 max-w-xl mx-auto md:mx-0 leading-relaxed">
-            Passionate microbiology researcher dedicated to exploring the unseen world. 
-            Specializing in microbiology, environmental research, and laboratory diagnostics 
-            with a commitment to scientific excellence and discovery.
+            Microbiology postgraduate exploring microbial sciences, laboratory research, molecular microbiology and applied microbiology.
           </p>
           
           <div className="flex flex-wrap items-center justify-center md:justify-start gap-4">
@@ -51,15 +50,7 @@ export function Hero() {
               <ArrowRight size={18} />
             </a>
             
-            <a 
-              href="/resume.pdf"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center gap-2 px-8 py-4 bg-white/5 border border-white/10 text-white rounded-full font-medium transition-all hover:bg-white/10 hover:border-white/30 backdrop-blur-sm"
-            >
-              <Download size={18} />
-              Resume
-            </a>
+            <MicrobiologyCVButton />
             
             <a 
               href="#contact"

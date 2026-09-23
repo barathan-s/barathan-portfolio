@@ -8,17 +8,17 @@ export function Internships() {
   const internships = [
     {
       title: "Research Internship",
-      company: "State Forest Research Institute",
+      company: "State Forest Research Institute, Chennai (Kolapakkam)",
       icon: <Microscope className="w-8 h-8 text-secondary" />,
       color: "from-secondary/20 to-transparent",
-      description: "Conducted field and laboratory research focusing on environmental microbiology. Assisted senior scientists in sample collection, processing, and data documentation. Gained practical experience in applying microbiological concepts to forestry and environmental conservation."
+      description: "30-day internship focused on soil microbiology and environmental microbiology. Conducted microbial isolation, soil microbial analysis, soil quality analysis, and DNA isolation, gaining significant laboratory expertise."
     },
     {
-      title: "Industrial Internship",
+      title: "Microbiology Intern",
       company: "Creamline Dairy Products",
       icon: <Building2 className="w-8 h-8 text-accent" />,
       color: "from-accent/20 to-transparent",
-      description: "Gained hands-on experience in food microbiology and industrial quality control. Participated in routine microbial testing of dairy products, hygiene monitoring, and learned about HACCP and GMP standards in a commercial manufacturing environment."
+      description: "18 Dec 2024 – 30 Dec 2024. Gained practical exposure to food microbiology and dairy microbiology. Focused on quality control, production microbiology, maintaining hygiene standards, and implementing HACCP and GMP protocols in an industrial setting."
     }
   ];
 
